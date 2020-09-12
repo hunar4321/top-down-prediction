@@ -110,7 +110,7 @@ function gameStates(){
         textSize(txtSize);
         text("Please Select Your Level:", 100, 50)
         text("How to Play:", 140, 330)        
-        mm = "Guess a hidden array of True or False \nchoices. You can peek your score for \na limited number of trials. To win: \n   - Use more Brain, less Luck! \n   - Learn from your past trials.\n   - Find an optimal strategy. \n\nAn article about optimal strategy at:"
+        mm = "Guess a hidden grid of True or False \nchoices. You can peek at your score for \na limited number of trials. To win: \n   - Use more Brain, less Luck! \n   - Learn from your past trials.\n   - Find an optimal strategy. \n\nAn article about optimal strategy at:"
         ww = "www.brainxyz.com/blog/mineclear"
         text(mm, 50, 430)
         fill(200,200,0)
