@@ -112,9 +112,9 @@ function gameStates(){
         text("How to Play:", 140, 330)        
         mm = "Guess a hidden grid of True and False choices.\nInitially, all are set to False (F).\nYou can peek at your score for \na limited number of trials. To win: \n   - Reach the full score \n   - Learn from your past trials.\n   - Find an optimal strategy. \n\nAn article about optimal strategy at:"
         ww = "www.brainxyz.com/blog/mineclear"
-        text(mm, 50, 430)
+        text(mm, 50, 440)
         fill(200,200,0)
-        text(ww, 50, 530)
+        text(ww, 50, 540)
     }
     else if(state==0){
         text("Guess T or F", 140, 20)
