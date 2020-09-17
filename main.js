@@ -377,7 +377,7 @@ function draw(){
             //displayHiddenPat()
             //recDisplay()
         //}
-        mytrials="trials: "+" " + trials;
+        mytrials="remaining\ntrials: "+" " + trials;
         fill(220);
         text(mytrials,  restartX, 110);
 
