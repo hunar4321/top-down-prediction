@@ -1,9 +1,9 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/hunar4321/Guess_Pattern)
 ![GitHub](https://img.shields.io/github/license/hunar4321/Guess_Pattern)
 
-# Guess Pattern
+# Guess Pattern (MineClear)
 
-Play the game here:
+Play the brain puzzle game online:
 
 https://hunar4321.github.io/Guess_Pattern/
 
@@ -12,6 +12,7 @@ For optimal strategy to play this game visit:
 
 https://www.brainxyz.com/blog/mineclear/
 
+We put the same concept on the Google play under the name MineClear
 
 ![](game_github.JPG)
 </br>
