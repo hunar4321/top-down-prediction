@@ -12,7 +12,9 @@ For optimal strategy to play this game visit:
 
 https://www.brainxyz.com/blog/mineclear/
 
-We put the same concept on the Google play under the name MineClear
+We put the same concept on the Google play under the name MineClear you can install it on your android device:
+
+https://play.google.com/store/apps/details?id=com.brainxyz.mineclear
 
 ![](game_github.JPG)
 </br>
