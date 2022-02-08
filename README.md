@@ -3,7 +3,7 @@
 
 # Guess Pattern (MineClear)
 
-Suppose you are in an exam and you have to answer a set of True or False questions. Also, suppose you do not know the correct answers to any of the questions (because they seem nonsense to you). In this situation, all you can do is random guessing and normally your resulted score is around 50% by chance. Let’s say the teacher who marks your work gives you many more trials to answer the same set of questions. Also, he/she shows you your total score at the end of each trial. What will you do to reach the perfect score with a minimal number of trials?
+Suppose you are in an exam and you have to answer a set of True or False questions. Also, suppose you do not know the correct answers to any of the questions. In this situation, all you can do is random guessing and normally your score will be around 50%. Let’s say the teacher who marks your work gives you many more trials to answer the same set of the questions. Also, he/she shows you your total score at the end of each trial. What will you do to reach the perfect score with a minimal number of trials?
 
 
 Play the brain puzzle game online:
