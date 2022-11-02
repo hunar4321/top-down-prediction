@@ -1,0 +1,173 @@
+<html>
+<style>
+.title{
+	text-align: center;
+}
+.center {
+  margin: auto;
+  align-content: center;
+  text-align: center;  
+  /*width: 40%;
+  border: 3px solid #73AD21;
+  padding: 10px;*/
+}
+.button1 {
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+.button {
+  padding: 18px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+</style>
+
+<div class="title" >
+	<h2>PREDICT PATTERN</h2>
+</div>
+
+<div id="centerDiv" class="center">
+
+<input id="btnScore" class='button1' type="button" value="Try Score" 
+ontouchstart="showScore()" onmousedown="showScore()" 
+ontouchend="hideScore()" onmouseup="hideScore()">
+
+<input id="btnAnswer" class='button1' type="button" value="Reveal Answer" 
+ontouchstart="revealAnswer()" onmousedown="revealAnswer()" 
+ontouchend="hideAnswer()" onmouseup="hideAnswer()">
+
+<h3 id="score"> Score: ? </h3>
+<p id="trial"> Trials: 0 | Reveals: 0 </p>
+
+<div id="gridDiv" class="center">
+
+<script type="text/javascript">
+
+var N = 16
+var trials = 0
+var reveals = 0
+var btnIds = []
+var patT = []
+var patG = []
+var score = 0
+var btns=[]
+var updateScore = false
+
+centerDiv = document.getElementById('centerDiv')
+for(let i=0; i<N; i++){
+	patT.push(0)
+	patG.push(0)
+	btns.push(document.createElement("button"))
+	btns[i].className = 'button'
+	btns[i].style.border = '2px solid black';
+	btns[i].innerHTML = 'F'
+	btns[i].style.background='#00FF00'
+	btns[i].onclick = function () {
+		val = btns[i].innerHTML;
+		if(val == 'F'){
+			val = 'T'; patG[i] = 1
+			btns[i].style.background='#00FF00';
+		}else{
+			val = 'F'; patG[i] = 0
+			btns[i].style.background='#FF0000';
+		}
+		btns[i].innerHTML = val;
+
+	};
+	if(i%4==0){
+		gridDiv.appendChild(document.createElement('br'))
+	}
+	gridDiv.appendChild(btns[i])
+}
+
+function colorizeButtons(pat){
+	for(let i=0; i<N; i++){
+		if(pat[i]==0){
+			btns[i].innerHTML = 'F'
+			btns[i].style.background = '#FF0000'
+		}else{
+			btns[i].innerHTML = 'T'
+			btns[i].style.background = '#00FF00'
+		}
+	}
+}
+
+function revealAnswer(){
+	reveals +=1
+	colorizeButtons(patT)
+}
+
+function hideAnswer(){ 
+	colorizeButtons(patG)
+	document.getElementById('trial').innerHTML = 'Trials: ' + trials + ' | Reveals: ' + reveals
+}
+
+function showScore(){
+	if(updateScore == false){
+		checkScore()
+		updateScore = true;
+	}
+	document.getElementById('score').innerHTML = 'Score: ' + score
+}
+
+function hideScore(){
+	updateScore = false
+	trials +=1
+	document.getElementById('score').innerHTML = 'Score: ?'
+	document.getElementById('trial').innerHTML = 'Trials: ' + trials + ' | Reveals: ' + reveals
+}
+
+function mutate(){
+	for(let i=0; i<N; i++){
+		r = Math.random();
+		if(r > 0.5){ patT[i] = 1 }else{ patT[i] = 0 }
+	}
+}
+
+function checkScore(){
+	score = 0
+	for(let i=0; i<N; i++){
+		if(patG[i]==patT[i]){
+			score +=1
+		}
+	}
+}
+
+function restart(){
+	trials = 0
+	reveals = 0
+	patT = []
+	patG = []
+	for(let i=0; i<N; i++){
+		patT[i]= 0
+		patG[i]= 0
+		btns[i].innerHTML = 'F'
+		btns[i].style.background='#FF0000';
+	}
+	document.getElementById('trial').innerHTML = 'Trials: ' + trials + ' | Reveals: ' + reveals
+	document.getElementById('score').innerHTML = 'Score: ?'
+	mutate()
+}
+
+restart()
+mutate()
+
+</script>
+</div>
+
+<br>
+<br>
+<input id="restart" class='button1' type="button" value="Restart" onclick="restart()">
+
+</div>
+
+</html>
+
+
