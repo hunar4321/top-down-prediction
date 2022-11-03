@@ -13,12 +13,8 @@ https://www.brainxyz.com/blog/mineclear/
 
 To play the game on your browser:
 
-https://hunar4321.github.io/predict-pattern-game/
+https://hunar4321.github.io/predict-pattern/
 
-
-The game is also avaible on Google play under the name MineClear:
-
-https://play.google.com/store/apps/details?id=com.brainxyz.mineclear
 
 ![](game_github.JPG)
 </br>
