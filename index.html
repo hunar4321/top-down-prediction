@@ -4,6 +4,12 @@
     initial-scale=1; maximum-scale=1; user-scalable=0;"/>
 
 <style>
+html, body{
+  margin:0;
+  background-color: floralwhite;
+  height:100%;
+  width:100%;
+}	
 .title{
 	text-align: center;
 }
@@ -17,22 +23,26 @@
 }
 .button1 {
   padding: 10px 20px;
+  background-color: palegoldenrod;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: 4px;
   cursor: pointer;
 }
 .button {
-  padding: 18px 25px;
+  padding: 20px 27px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: 0px;
   cursor: pointer;
 }
 </style>
 
+<br>
 <div class="title" >
 	<h2>PREDICT PATTERN</h2>
 </div>
@@ -65,7 +75,7 @@ for(let i=0; i<N; i++){
 	patG.push(0)
 	btns.push(document.createElement("button"))
 	btns[i].className = 'button'
-	btns[i].style.border = '2px solid black';
+	//btns[i].style.border = '2px solid black';
 	btns[i].innerHTML = 'F'
 	btns[i].style.background='#00FF00'
 	btns[i].onclick = function () {
@@ -179,6 +189,12 @@ ontouchstart="revealAnswer()" onmousedown="revealAnswer()"
 ontouchend="hideAnswer()" onmouseup="hideAnswer()">
 
 
+</div>
+
+<br>
+<br>
+<div class = center>
+	www.brainxyz.com
 </div>
 
 </html>
