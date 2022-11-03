@@ -1,7 +1,8 @@
 <html>
+
 <meta name="viewport" content="width=device-width; 
     initial-scale=1; maximum-scale=1; user-scalable=0;"/>
-	
+
 <style>
 .title{
 	text-align: center;
@@ -10,17 +11,16 @@
   margin: auto;
   align-content: center;
   text-align: center;  
-  /*height: 100vh;
-  width: 40%;
+  /*width: 40%;
   border: 3px solid #73AD21;
   padding: 10px;*/
 }
 .button1 {
-  padding: 10px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
 }
 .button {
@@ -28,7 +28,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
 }
 </style>
@@ -39,13 +39,8 @@
 
 <div id="centerDiv" class="center">
 
-<input id="btnScore" class='button1' type="button" value="Peek Score" 
-ontouchstart="showScore()" onmousedown="showScore()" 
-ontouchend="hideScore()" onmouseup="hideScore()">
+<input id="restart" class='button1' type="button" value="                    Restart                    " onclick="restart()">
 
-<input id="btnAnswer" class='button1' type="button" value="Reveal Answer" 
-ontouchstart="revealAnswer()" onmousedown="revealAnswer()" 
-ontouchend="hideAnswer()" onmouseup="hideAnswer()">
 
 <h3 id="score"> Score: ? </h3>
 <p id="trial"> Trials: 0 | Reveals: 0 </p>
@@ -124,9 +119,15 @@ function showScore(){
 function hideScore(){
 	updateScore = false
 	trials +=1
-	document.getElementById('score').innerHTML = 'Score: ?'
 	document.getElementById('trial').innerHTML = 'Trials: ' + trials + ' | Reveals: ' + reveals
+
+	if(score < N){
+		document.getElementById('score').innerHTML = 'Score: ?'
+	}else{
+		document.getElementById('score').innerHTML = 'Score: '+score + ' (Perfect Score)'
+	}
 }
+
 
 function mutate(){
 	for(let i=0; i<N; i++){
@@ -168,7 +169,15 @@ mutate()
 
 <br>
 <br>
-<input id="restart" class='button1' type="button" value="Restart" onclick="restart()">
+
+<input id="btnScore" class='button1' type="button" value="Peek Score" 
+ontouchstart="showScore()" onmousedown="showScore()" 
+ontouchend="hideScore()" onmouseup="hideScore()">
+
+<input id="btnAnswer" class='button1' type="button" value="Reveal Answer" 
+ontouchstart="revealAnswer()" onmousedown="revealAnswer()" 
+ontouchend="hideAnswer()" onmouseup="hideAnswer()">
+
 
 </div>
 
