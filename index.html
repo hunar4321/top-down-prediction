@@ -44,7 +44,7 @@ html, body{
 
 <br>
 <div class="title" >
-	<h2>PREDICT PATTERN</h2>
+	<h2>PREDICT HIDDEN PATTERN</h2>
 </div>
 
 <div id="centerDiv" class="center">
@@ -68,6 +68,14 @@ var patG = []
 var score = 0
 var btns=[]
 var updateScore = false
+
+
+// const myTimeout = setTimeout(myGreeting, 5000);
+
+// function myStopFunction() {
+//   clearTimeout(myTimeout);
+// }
+
 
 centerDiv = document.getElementById('centerDiv')
 for(let i=0; i<N; i++){
@@ -96,46 +104,55 @@ for(let i=0; i<N; i++){
 	gridDiv.appendChild(btns[i])
 }
 
-function colorizeButtons(pat){
+function colorizeButtons(pat, tone){
+	if(tone == false){
+		Fcolor = '#FF0000'
+		Tcolor = '#00FF00'
+	}else{
+		Fcolor = '#fe7474'
+		Tcolor = '#b1fe74'
+	}
 	for(let i=0; i<N; i++){
 		if(pat[i]==0){
 			btns[i].innerHTML = 'F'
-			btns[i].style.background = '#FF0000'
+			btns[i].style.background = Fcolor
 		}else{
 			btns[i].innerHTML = 'T'
-			btns[i].style.background = '#00FF00'
+			btns[i].style.background = Tcolor
 		}
 	}
 }
 
 function revealAnswer(){
 	reveals +=1
-	colorizeButtons(patT)
+	colorizeButtons(patT, true)
+	setTimeout( hideAnswer , 1000)
 }
 
 function hideAnswer(){ 
-	colorizeButtons(patG)
+	colorizeButtons(patG, false)
 	document.getElementById('trial').innerHTML = 'Trials: ' + trials + ' | Reveals: ' + reveals
 }
 
+
 function showScore(){
-	if(updateScore == false){
-		checkScore()
-		updateScore = true;
-	}
+	checkScore()
 	document.getElementById('score').innerHTML = 'Score: ' + score
+	document.getElementById('score').style="color:red;"
+	//document.getElementById('score').style.border = "thick solid blue"; 
+	setTimeout( hideScore , 1000)
 }
 
 function hideScore(){
-	updateScore = false
 	trials +=1
 	document.getElementById('trial').innerHTML = 'Trials: ' + trials + ' | Reveals: ' + reveals
-
 	if(score < N){
 		document.getElementById('score').innerHTML = 'Score: ?'
 	}else{
 		document.getElementById('score').innerHTML = 'Score: '+score + ' (Perfect Score)'
 	}
+	document.getElementById('score').style="color:black;"
+
 }
 
 
@@ -181,12 +198,10 @@ mutate()
 <br>
 
 <input id="btnScore" class='button1' type="button" value="Peek Score" 
-ontouchstart="showScore()" onmousedown="showScore()" 
-ontouchend="hideScore()" onmouseup="hideScore()">
+onclick="showScore()" >
 
 <input id="btnAnswer" class='button1' type="button" value="Reveal Answer" 
-ontouchstart="revealAnswer()" onmousedown="revealAnswer()" 
-ontouchend="hideAnswer()" onmouseup="hideAnswer()">
+onclick="revealAnswer()" >
 
 
 </div>
@@ -198,5 +213,3 @@ ontouchend="hideAnswer()" onmouseup="hideAnswer()">
 </div>
 
 </html>
-
-
