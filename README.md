@@ -8,13 +8,17 @@ The obvious answer is to mutate the choices one by one and peak at your total sc
 
 For more inforation about this game and the optimal strategy to win please read this blog: 
 
-https://www.brainxyz.com/blog/mineclear/
+https://www.brainxyz.com/blog/predict/
 
 
 To play the game on your browser:
 
 https://hunar4321.github.io/predict-pattern/
 
+To run the simulations:
 
-![](game_github.JPG)
+predict_pattern_algorithms.py
+
+
+![](screen_shot.PNG)
 </br>
