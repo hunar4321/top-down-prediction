@@ -9,11 +9,11 @@ Suppose in an exam you have to answer a set of True or False questions and you d
 
 https://hunar4321.github.io/predict-pattern/
 
-** For more imforation about this game and the optimal strategy to win read this blog:** 
+**For more imforation about this game and the optimal strategy to win read this blog:** 
 
 https://www.brainxyz.com/blog/predict/
 
-** The following python script, tests various alogrithms to solve the above question.**
+**The following python script, tests various alogrithms to solve the above question.**
 
 https://github.com/hunar4321/predict-pattern/blob/master/predict_pattern_algorithms.py
 
