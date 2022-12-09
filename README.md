@@ -20,5 +20,5 @@ To run the simulations:
 predict_pattern_algorithms.py
 
 
-![](screen_shot.PNG)
+![](old/screen_shot.PNG)
 </br>
