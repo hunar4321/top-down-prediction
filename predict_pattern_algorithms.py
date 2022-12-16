@@ -45,29 +45,29 @@ def check_score(pattern, guess):
 def print_stat(trials):
     print("Average Number of Trials = ", np.round(np.mean(trials), 2), "| SD =", np.round(np.std(trials), 2))
     
-def generate_regular_guesses(M):
+def generate_guess_vectors(M):
     """
-    guess_matrix is an array of vectors for the initial guesses. It tries to capture regular patterns
-    The vectors are square waves starting with low to high frequences. Ends with a tile of 1s and 0s.
+    guess_vectors are an arrays of vectors for the initial guesses. It tries to capture regular patterns
+    The vectors are square waves starting with low to high frequences. 
     """
-    guess_matrix = np.zeros((int(np.log2(M)), M))
+    guess_vectors = np.zeros((int(np.log2(M)), M))
     ln = np.linspace(0, 2*np.pi, M)
     for i in range(1, guess_matrix.shape[0]+1):
         t = np.cos(ln*i)
         t[t >= 0] = 1
         t[t < 0 ] = 0
-        guess_matrix[i-1] = t.copy()
+        guess_vectors[i-1] = t.copy()
     # plt.imshow(guess_matrix) #visualize
-    return guess_matrix
+    return guess_vectors
 
-def simulate(func, patterns, N):
+def simulate(algorithm, patterns, N):
     """
     running N simulaiton for each algorithm to estimate 
     the average trials required to predict the pattern
     """
     trials = np.zeros(N)
     for k in range(N):
-        trial = func(patterns[k])
+        trial = algorithm(patterns[k])
         trials[k] = trial
     print_stat(trials)
     return trials
@@ -185,10 +185,10 @@ def algorithm4(pat):
         res = lsq_linear(xs, ys, bounds=(0, 1))
         evidence = res.x #evidence are the weight vector (ws) that solve xs @ ws = ys
         
-        if( trial < (len(guess_matrix) + 1) ):
-            ## this part makes some initial guesses based on a pre-defined guess_matrix (passed as a global variable)
+        if( trial < (len(guess_vectors) + 1) ):
+            ## this part makes some initial guesses based on a pre-defined guess_vectors (passed as a global variable)
             if(guess_matrix.size != 0):
-                current_belief = guess_matrix[trial-1]
+                current_belief = guess_vectors[trial-1]
             else:
                 # inital random guesses still works but pre-defined broadly varied initial guesses are better
                 current_belief = rng.randint(0, 2, M)
@@ -373,8 +373,8 @@ else:
     
 print("********************")
 print("[Top Down Prediction]")
-guess_matrix = generate_regular_guesses(M) 
-#guess_matrix passed as a global variable to algorithm4
+guess_vectors = generate_guess_vectors(M) 
+#guess_vectors passed as a global variable to algorithm4
 trials = simulate(algorithm4, patterns, N)
 print("-------------------")
 print("Trials:")
@@ -436,8 +436,8 @@ else:
     
 print("********************")
 print("[Top Down Prediction]")
-guess_matrix = generate_regular_guesses(M) 
-#guess_matrix passed as a global variable to algorithm4
+guess_vectors = generate_guess_vectors(M) 
+#guess_vectors passed as a global variable to algorithm4
 trials = simulate(algorithm4, patterns, N)
 print("-------------------")
 print("Trials:")
