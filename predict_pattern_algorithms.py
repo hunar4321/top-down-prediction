@@ -89,7 +89,8 @@ def algorithm0(pat):
         
 def algorithm1(pat):
     """
-    Linear Algebra: solves xs @ ws = ys; where xs are our guess matrix, ys are the global scores
+    Linear Algebra: solves xs @ ws = ys; where xs are our guess vectors, ys are the global scores
+    Note that check_score is a non-linear function but a linear regression still solves this simple problem.
     """
     xs = 1-np.eye(M) # generate 16 different equations (16 trials)
     ys = np.zeros((M))
