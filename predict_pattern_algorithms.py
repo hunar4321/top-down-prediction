@@ -47,8 +47,8 @@ def print_stat(trials):
     
 def generate_guess_vectors(M):
     """
-    guess_vectors are an arrays of vectors for the initial guesses. It tries to capture regular patterns
-    The vectors are square waves starting with low to high frequences. 
+    guess_vectors are arrays of vectors for the initial guesses. 
+    The vectors are square waves starting with low to high frequences. It tries to capture regular patterns.
     """
     guess_vectors = np.zeros((int(np.log2(M)), M))
     ln = np.linspace(0, 2*np.pi, M)
