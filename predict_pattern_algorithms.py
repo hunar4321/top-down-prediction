@@ -52,12 +52,12 @@ def generate_guess_vectors(M):
     """
     guess_vectors = np.zeros((int(np.log2(M)), M))
     ln = np.linspace(0, 2*np.pi, M)
-    for i in range(1, guess_matrix.shape[0]+1):
+    for i in range(1, guess_vectors.shape[0]+1):
         t = np.cos(ln*i)
         t[t >= 0] = 1
         t[t < 0 ] = 0
         guess_vectors[i-1] = t.copy()
-    # plt.imshow(guess_matrix) #visualize
+    # plt.imshow(guess_vectors) #visualize
     return guess_vectors
 
 def simulate(algorithm, patterns, N):
@@ -187,7 +187,7 @@ def algorithm4(pat):
         
         if( trial < (len(guess_vectors) + 1) ):
             ## this part makes some initial guesses based on a pre-defined guess_vectors (passed as a global variable)
-            if(guess_matrix.size != 0):
+            if(guess_vectors.size != 0):
                 current_belief = guess_vectors[trial-1]
             else:
                 # inital random guesses still works but pre-defined broadly varied initial guesses are better
