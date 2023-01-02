@@ -3,7 +3,7 @@
 Predict Hidden Patterns - Exploring Algorthims
 @author: Hunar @ brainxyz.com
 
-For more info please check out the associated video: https://youtube.com/@brainxyz/   ?comming soon...
+For more info please check out the associated video: https://youtu.be/5qqxGwlUilU
 Also, there is a blog post: https://www.brainxyz.com/blog/predict/
 
 The following Algortihms are tried to solve this game: https://hunar4321.github.io/predict-pattern/
